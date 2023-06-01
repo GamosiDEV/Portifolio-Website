@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio_website/view/about_view.dart';
+import 'package:portifolio_website/view/top_screen_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -10,15 +12,10 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      constraints: BoxConstraints(maxHeight: 900, minHeight: 700),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage(
-            "assets/images/background.png",
-          ),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [TopScreenView(), AboutView()],
         ),
       ),
     );
