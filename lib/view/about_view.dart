@@ -21,7 +21,7 @@ class AboutView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: DEFAULT_PADDING),
             child: Row(
               children: [
-                Expanded(
+                const Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
