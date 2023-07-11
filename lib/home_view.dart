@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio_website/view/about_view.dart';
+import 'package:portifolio_website/view/contact_view.dart';
 import 'package:portifolio_website/view/knowledge_view.dart';
+import 'package:portifolio_website/view/projects_view.dart';
 import 'package:portifolio_website/view/top_screen_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -16,7 +18,13 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [TopScreenView(), AboutView(), KnowledgeView()],
+          children: [
+            TopScreenView(),
+            AboutView(),
+            KnowledgeView(),
+            ProjectsView(),
+            ContactView()
+          ],
         ),
       ),
     );
