@@ -1,10 +1,38 @@
+// ignore_for_file: must_be_immutable
+
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:portifolio_website/constants.dart';
+import 'package:portifolio_website/models/knowledge_model.dart';
 
 class KnowledgeView extends StatelessWidget {
   KnowledgeView({super.key});
 
   final ScrollController controller = ScrollController();
+
+  List<KnowledgeModel> knowledgeList = [
+    KnowledgeModel(
+      "Especialização em Desenvolvimento Mobile",
+      "assets/images/specialization.png",
+      "Em 2023 decidi por iniciar uma especialização em Desenvolvimento Mobile, onde em Março iniciei meus estudos de Pós Graduação na PUC Minas onde atualmente curso Desenvolvimento Mobile com a data prevista para termino ate Setembro de 2024.",
+    ),
+    KnowledgeModel(
+      "Desenvolvimento de Apps Freelance",
+      "assets/images/work.png",
+      "No período compreendido entre 2022 e 2023, atuei na construção de aplicativos e exerci a função de programador freelancer, resolvendo problemas e construindo soluções inteligentes.",
+    ),
+    KnowledgeModel(
+      "Bacharel em Engenharia de Software",
+      "assets/images/bachelor.png",
+      "Em Janeiro 2015 iniciei os estudos no curso de Engenharia de Software na UNIRV onde estudei por 4 anos e me formei em Dezembro de 2018.",
+    ),
+    KnowledgeModel(
+      "Criação de Apps Android/iOS/Web com Flutter",
+      "assets/images/course.png",
+      "Entre 2021 e 2022 realizei e conclui o curso de Desenvolvimento de Apps criado por Daniel Ciolfi e disponibilizado pela Startto.dev.",
+    )
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,136 +56,65 @@ class KnowledgeView extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Card(
-                          color: Colors.white,
+                Container(
+                  height: 350,
+                  padding: EdgeInsets.all(DEFAULT_PADDING),
+                  child: ScrollConfiguration(
+                    behavior: ScrollConfiguration.of(context).copyWith(
+                      dragDevices: {
+                        PointerDeviceKind.touch,
+                        PointerDeviceKind.mouse,
+                      },
+                    ),
+                    child: ListView.builder(
+                      itemCount: knowledgeList.length,
+                      itemBuilder: (context, index) {
+                        return Card(
                           child: Container(
                             padding: EdgeInsets.all(DEFAULT_PADDING),
-                            height: 250,
+                            width: 500,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
+                                CircleAvatar(
+                                  radius: 32,
+                                  backgroundColor: Colors.white10,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8),
+                                    child: ClipOval(
+                                        child: Image.asset(
+                                            knowledgeList[index].image)),
+                                  ),
+                                ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding:
+                                      const EdgeInsets.all(DEFAULT_PADDING),
                                   child: Text(
-                                    "Bachael em Engenharia de Software",
+                                    knowledgeList[index].title,
+                                    textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding:
+                                      const EdgeInsets.all(DEFAULT_PADDING),
                                   child: Text(
-                                      "Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software "),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Card(
-                          color: Colors.white,
-                          child: Container(
-                            padding: EdgeInsets.all(DEFAULT_PADDING),
-                            height: 250,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Bachael em Engenharia de Software",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
+                                    knowledgeList[index].description,
+                                    textAlign: TextAlign.center,
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                      "Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software "),
-                                ),
                               ],
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        );
+                      },
+                      scrollDirection: Axis.horizontal,
+                    ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Card(
-                          color: Colors.white,
-                          child: Container(
-                            padding: EdgeInsets.all(DEFAULT_PADDING),
-                            height: 250,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Bachael em Engenharia de Software",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                      "Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software "),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Card(
-                          color: Colors.white,
-                          child: Container(
-                            padding: EdgeInsets.all(DEFAULT_PADDING),
-                            height: 250,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Bachael em Engenharia de Software",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                      "Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software Bachael em Engenharia de Software "),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                )
               ],
             ),
           ),
