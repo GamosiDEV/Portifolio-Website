@@ -1,37 +1,13 @@
 class ProjectModel {
-  final String image, category, title;
-  final int id;
+  final String imageA,
+      imageB,
+      icon,
+      description,
+      title,
+      detailsA,
+      detailsB,
+      repository;
 
-  ProjectModel(
-      {required this.id,
-      required this.image,
-      required this.category,
-      required this.title});
+  ProjectModel(this.title, this.imageA, this.imageB, this.icon,
+      this.description, this.detailsA, this.detailsB, this.repository);
 }
-
-List<ProjectModel> recentWorks = [
-  ProjectModel(
-    id: 1,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
-    image: "assets/images/work_1.png",
-  ),
-  ProjectModel(
-    id: 2,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
-    image: "assets/images/work_2.png",
-  ),
-  ProjectModel(
-    id: 3,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
-    image: "assets/images/work_3.png",
-  ),
-  ProjectModel(
-    id: 4,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
-    image: "assets/images/work_4.png",
-  )
-];
