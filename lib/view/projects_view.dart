@@ -21,37 +21,12 @@ class _ProjectsViewState extends State<ProjectsView> {
         "assets/images/weather-report-01.png",
         "assets/images/weather-report-02.png",
         "assets/images/weather-report-icon.png",
-        "Aplicativo de Previsão do tempo",
-        "Aplicativo de Previsão do tempo",
-        "Aplicativo de Previsão do tempo",
+        "Um aplicativo de clima intuitivo que oferece previsões precisas do tempo. Acompanhe a condição climática atual, temperatura, umidade, nuvens e ventos. Temperatura para a sua localização, busque e salve cidades favoritas e obtenha dados meteorológicos confiáveis.",
+        "O Weather Report é um aplicativo de clima que oferece previsões do tempo detalhadas, com foco na condição climática atual de uma cidade específica. Além disso, ele permite uma visão mais ampla, fornecendo relatórios de temperatura e umidade para até 5 dias no futuro, em intervalos de 3 horas.\n\nNa tela inicial do aplicativo, os usuários têm acesso não apenas à temperatura atual, mas também a informações como umidade, percentual de nuvens, estado do tempo, horário, sensação térmica e velocidade e direção dos ventos.",
+        "Além disso, o aplicativo permite que os usuários rastreiem a localização do próprio dispositivo, proporcionando a visualização da temperatura atual do local. Também é possível pesquisar cidades pelo nome, estado ou país, com uma ampla base de cidades ao redor do mundo.\n\nCaso desejem, os usuários podem salvar uma ou mais cidades em sua lista de favoritos e acessá-las posteriormente. \n\nO Weather Report utiliza a versão aberta da API da OpenWeather Ltd, uma empresa britânica que fornece dados meteorológicos atuais e previsões para qualquer localização geográfica. O aplicativo consome e trata as informações fornecidas pela API, disponibilizando-as de forma fácil e simples em seu layout.",
         "https://github.com/GamosiDEV/Weather-Report"),
-    ProjectModel(
-        "Desenvolvimento de Apps Freelance",
-        "assets/images/work.png",
-        "assets/images/work.png",
-        "assets/images/work.png",
-        "No período compreendido entre 2022 e 2023, atuei na construção de aplicativos e exerci a função de programador freelancer, resolvendo problemas e construindo soluções inteligentes.",
-        "No período compreendido entre 2022 e 2023, atuei na construção de aplicativos e exerci a função de programador freelancer, resolvendo problemas e construindo soluções inteligentes.",
-        "No período compreendido entre 2022 e 2023, atuei na construção de aplicativos e exerci a função de programador freelancer, resolvendo problemas e construindo soluções inteligentes.",
-        "https://www.google.com"),
-    ProjectModel(
-        "Bacharel em Engenharia de Software",
-        "assets/images/bachelor.png",
-        "assets/images/bachelor.png",
-        "assets/images/bachelor.png",
-        "Em Janeiro 2015 iniciei os estudos no curso de Engenharia de Software na UNIRV onde estudei por 4 anos e me formei em Dezembro de 2018.",
-        "Em Janeiro 2015 iniciei os estudos no curso de Engenharia de Software na UNIRV onde estudei por 4 anos e me formei em Dezembro de 2018.",
-        "Em Janeiro 2015 iniciei os estudos no curso de Engenharia de Software na UNIRV onde estudei por 4 anos e me formei em Dezembro de 2018.",
-        "https://www.google.com"),
-    ProjectModel(
-        "Criação de Apps Android/iOS/Web com Flutter",
-        "assets/images/course.png",
-        "assets/images/course.png",
-        "assets/images/course.png",
-        "Entre 2021 e 2022 realizei e conclui o curso de Desenvolvimento de Apps criado por Daniel Ciolfi e disponibilizado pela Startto.dev.",
-        "Entre 2021 e 2022 realizei e conclui o curso de Desenvolvimento de Apps criado por Daniel Ciolfi e disponibilizado pela Startto.dev.",
-        "Entre 2021 e 2022 realizei e conclui o curso de Desenvolvimento de Apps criado por Daniel Ciolfi e disponibilizado pela Startto.dev.",
-        "https://www.google.com")
+    ProjectModel("?", "assets/images/work.png", "assets/images/work.png",
+        "assets/images/work.png", "?", "?", "?", "https://www.google.com"),
   ];
 
   int selectedIndex = 0;
@@ -162,20 +137,24 @@ class _ProjectsViewState extends State<ProjectsView> {
                         padding: const EdgeInsets.all(DEFAULT_PADDING),
                         child: Row(
                           children: [
-                            Expanded(
-                              child: Text(
-                                projectsList[selectedIndex].description,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
                             Container(
                               height: 500,
                               width: 300,
-                              padding: EdgeInsets.all(DEFAULT_PADDING),
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: AssetImage(
                                           projectsList[selectedIndex].imageA))),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    DEFAULT_PADDING, 8, DEFAULT_PADDING * 2, 8),
+                                child: Text(
+                                  projectsList[selectedIndex].detailsA,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                              ),
                             )
                           ],
                         ),
@@ -184,6 +163,17 @@ class _ProjectsViewState extends State<ProjectsView> {
                         padding: const EdgeInsets.all(DEFAULT_PADDING),
                         child: Row(
                           children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    DEFAULT_PADDING, 8, DEFAULT_PADDING * 2, 8),
+                                child: Text(
+                                  projectsList[selectedIndex].detailsB,
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                              ),
+                            ),
                             Container(
                               height: 500,
                               width: 300,
@@ -192,12 +182,6 @@ class _ProjectsViewState extends State<ProjectsView> {
                                   image: DecorationImage(
                                       image: AssetImage(
                                           projectsList[selectedIndex].imageB))),
-                            ),
-                            Expanded(
-                              child: Text(
-                                projectsList[selectedIndex].description,
-                                textAlign: TextAlign.center,
-                              ),
                             ),
                           ],
                         ),
